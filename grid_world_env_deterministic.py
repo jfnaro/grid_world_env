@@ -130,7 +130,6 @@ class grid_world_env_deterministic:
         """Returns the data from taking an action
 
         Parameters
-        state -- 1 dimensional array
         action -- integer corresponding to action: 0 -> up, 1 -> right, 2 -> down, 3 -> left
 
         Returns in order
