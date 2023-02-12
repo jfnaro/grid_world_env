@@ -5,7 +5,7 @@ import numpy as np
 class grid_world_env_deterministic:
     """A deterministic gridworld environment"""
 
-    def __init__(self, height=5, width=5, init_pos=(0,0), end_pos=[(-1,-1)], seed = 1, holes=[], hole_quantity=5):
+    def __init__(self, height=5, width=5, init_pos=(0,0), end_pos=[(-1,-1)], seed=1, holes=[], hole_quantity=5, reward=0, penalty=-10, step_penalty=-1):
         """Create a gridworld environment
 
         Keyword arguments:
@@ -16,15 +16,18 @@ class grid_world_env_deterministic:
         seed -- seed for rng used to create holes if none are specified (default 1)
         holes -- list of hole position tuples, will be populated randomly if left empty (default [])
         hole_quantity -- amount of holes to randomly add if holes is empty (default 5)
+        reward -- reward for reaching goal (default 0)
+        penalty -- penalty for entering hole (default -10)
+        step_penalty -- penalty for taking a step (default -1)
         """
 
         self.empty = 0
         self.agent = 1
         self.goal = 3
         self.hole = 4
-        self.reward = 0
-        self.penalty = -10
-        self.step_penalty = -1
+        self.reward = reward
+        self.penalty = penalty
+        self.step_penalty = step_penalty
         self.height = height
         self.width = width
         self.init_pos = init_pos
